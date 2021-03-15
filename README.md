@@ -5,7 +5,7 @@ test_chain for crypto2021 developed by web3.js and node.js
 
 ### 环境部署
 
- 1. node with npm
+ 1. node v8.12.0 with npm v6.4.1（未在其他版本测试）
 
     
 
@@ -16,8 +16,8 @@ test_chain for crypto2021 developed by web3.js and node.js
     或
 
     ```cmd
-    npm install web3@1.3.3
-    npm install ganache-cli@beta
+    npm install web3@0.20.7
+    npm install ganache-cli@6.1.8
     ```
 
     （注：可能需要科学上网或者使用镜像。）
@@ -39,12 +39,13 @@ test_chain for crypto2021 developed by web3.js and node.js
 4. `get.js` 读取证书字典的脚本
 5. `utils.js`  项目常用工具函数
 6. `config.js` `node.js`项目的配置文件
+7. `run.cmd` ganache-cli启动脚本
 
 ### 使用方法
 
 1. 启动`ganache-cli`测试链
 
-   命令行执行`ganache-cli`
+   双击`run.cmd`
 
    ![1](pics\1.png)
 

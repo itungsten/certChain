@@ -39,12 +39,13 @@ test_chain for crypto2021 developed by web3.js and node.js
 4. `get.js` 读取证书字典的脚本
 5. `utils.js`  项目常用工具函数
 6. `config.js` `node.js`项目的配置文件
+7. `run.cmd` ganache-cli启动脚本
 
 ### 使用方法
 
 1. 启动`ganache-cli`测试链
 
-   命令行执行`ganache-cli`
+   双击`run.cmd`
 
    ![1](pics\1.png)
 

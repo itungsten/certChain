@@ -5,7 +5,7 @@ test_chain for crypto2021 developed by web3.js and node.js
 
 ### 环境部署
 
- 1. node v8.12.0 with npm v6.4.1（未在其他版本测试）
+ 1. node with npm
 
     
 
@@ -16,8 +16,8 @@ test_chain for crypto2021 developed by web3.js and node.js
     或
 
     ```cmd
-    npm install web3@0.20.7
-    npm install ganache-cli@6.1.8
+    npm install web3@1.3.3
+    npm install ganache-cli@beta
     ```
 
     （注：可能需要科学上网或者使用镜像。）

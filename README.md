@@ -15,12 +15,21 @@ test_chain for crypto2021 developed by web3.js and node.js
 
     或
 
-    ```node
+    ```cmd
     npm install web3@0.20.7
     npm install ganache-cli@6.1.8
     ```
 
     （注：可能需要科学上网或者使用镜像。）
+    
+    ```cmd
+    //使用镜像  https://registry.npmjs.org/
+    npm config set registry https://repo.huaweicloud.com/repository/npm/
+    npm config set registry https://registry.npm.taobao.org
+    npm cache clean -f
+    ```
+    
+    
 
 ### 文件说明
 

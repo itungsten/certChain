@@ -11,19 +11,23 @@ var conf=require(__dirname+'/config.js')
 var Web3 = require('web3');
 
 //创建web3实例，并连接私有链
-var web3 = new Web3(new Web3.providers.HttpProvider(conf.provider));
+var wsProvider = new Web3.providers.WebsocketProvider(conf.provider);
+var web3 = new Web3(wsProvider);
 
-//创建智能合约，参数为solc编译后生成的abi
-var certContract = web3.eth.contract(conf.ABI);
+//创建智能合约，参数为solc编译后生成的abi和合约地址
+var certContract = new web3.eth.Contract(conf.ABI,conf.address);
 
-//创建一个变量用于指代主账户，方便后续的操作
-var creator = web3.eth.accounts[conf.creator];
+web3.eth.getAccounts().then(function(accounts){
+	//创建一个变量用于指代主账户，方便后续的操作
+	var creator=accounts[conf.creator]
+	//修改数据
+	var email=process.argv[2];
+	var certStr=process.argv[3];
+	certContract.methods.setCert(email,certStr).send({from:creator, gas:conf.gasLimit}).then(
+		function(){
+			console.log("Set",email,":",certStr);
+			wsProvider.disconnect();
+		}
+	)
 
-//连接合约
-var cert = certContract.at(conf.address);
-
-//修改数据
-var email=process.argv[2];
-var certStr=process.argv[3];
-cert.setCert.sendTransaction(email,certStr,{from:creator, gas:conf.gasLimit});
-console.log("Set",email,":",certStr);
+})

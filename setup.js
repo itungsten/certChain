@@ -13,22 +13,38 @@ var Web3 = require('web3');
 var utils =require(__dirname+'/utils');
 
 //创建web3实例，并连接私有链
-var web3 = new Web3(new Web3.providers.HttpProvider(conf.provider));
+var wsProvider = new Web3.providers.WebsocketProvider(conf.provider);
+var web3 = new Web3(wsProvider);
 
 //创建智能合约，参数为solc编译后生成的abi
-var certContract = web3.eth.contract(conf.ABI);
+var certContract = new web3.eth.Contract(conf.ABI);
 
-//创建一个变量用于指代主账户，方便后续的操作
-var creator = web3.eth.accounts[conf.creator];
+web3.eth.getAccounts().then(function(accounts){
+	//创建一个变量用于指代主账户，方便后续的操作
+	var creator=accounts[conf.creator]
+	//部署合约
+	certContract.deploy({
+    data: conf.bin,
+	})
+	.send({
+	    from: creator,
+	    gas: conf.gasLimit,
+	    gasPrice: conf.gasPrice
+	}, function(error, transactionHash){  })
+	.on('error', function(error){  })
+	.on('transactionHash', function(transactionHash){  })
+	.on('receipt', function(receipt){
+	})
+	.on('confirmation', function(confirmationNumber, receipt){  })
+	.then(function(newContractInstance){
+	    var certAddress=newContractInstance.options.address;
+		setTimeout(
+			function(){
+				utils.replaceString(__dirname+'/config.js',conf.address,certAddress);
+				console.log("Setup OK!");
+			},
+			conf.waitForCreate);
+			wsProvider.disconnect();
+	});
 
-//创建initializer，内容填充合约编译生成的bin，主要用于下一步的合约部署
-var initializer = {from: creator, data: conf.bin, gas: conf.gasLimit};
-
-//部署合约
-var cert = certContract.new(initializer);
-setTimeout(
-	function(){
-		utils.replaceString(__dirname+'/config.js',conf.address,cert.address);
-		console.log("Setup OK!");
-	},
-	conf.waitForCreate);
+})

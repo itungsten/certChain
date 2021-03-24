@@ -37,9 +37,11 @@ test_chain for crypto2021 developed by web3.js and node.js
 2. `setup.js` 在链上部署智能合约的安装部署文件
 3. `set.js` 修改证书字典的脚本
 4. `get.js` 读取证书字典的脚本
-5. `utils.js`  项目常用工具函数
-6. `config.js` `node.js`项目的配置文件
-7. `run.cmd` ganache-cli启动脚本
+5. `sign.js` 写入签名记录的脚本
+6. `utils.js`  项目常用工具函数
+7. `event.js`  监听事件的脚本
+8. `config.js` `node.js`项目的配置文件
+9. `run.cmd` ganache-cli启动脚本
 
 ### 使用方法
 
@@ -51,19 +53,19 @@ test_chain for crypto2021 developed by web3.js and node.js
 
 2. 在测试链上部署智能合约
 
-   以项目文件夹为工作目录，执行`node setup.js`
+   以项目文件夹为工作目录，执行`node setup`
 
    ![2](pics\2.png)
 
 3. 测试`set`方法
 
-   以项目文件夹为工作目录，执行`node set.js <email> <cert>`
+   以项目文件夹为工作目录，执行`node set <email> <cert>`
 
    ![3](pics\3.png)
 
 4. 测试`get`方法
 
-   以项目文件夹为工作目录，执行`node get.js <email>`
+   以项目文件夹为工作目录，执行`node get <email>`
 
    ![4](pics\4.png)
 

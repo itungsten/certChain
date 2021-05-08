@@ -1,0 +1,186 @@
+{
+	"compiler": {
+		"version": "0.4.26+commit.4563c3fc"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_email",
+						"type": "string"
+					}
+				],
+				"name": "getCert",
+				"outputs": [
+					{
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_corp",
+						"type": "address"
+					},
+					{
+						"name": "_status",
+						"type": "bool"
+					}
+				],
+				"name": "setList",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_email",
+						"type": "string"
+					},
+					{
+						"name": "_cert",
+						"type": "string"
+					}
+				],
+				"name": "setCert",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_email",
+						"type": "string"
+					},
+					{
+						"name": "_hash",
+						"type": "string"
+					}
+				],
+				"name": "signDoc",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_corp",
+						"type": "address"
+					}
+				],
+				"name": "getList",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "email",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"name": "cert",
+						"type": "string"
+					}
+				],
+				"name": "certEvent",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "email",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"name": "hash",
+						"type": "string"
+					}
+				],
+				"name": "docEvent",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "corp",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "status",
+						"type": "bool"
+					}
+				],
+				"name": "listEvent",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ca.sol": "CA"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ca.sol": {
+			"keccak256": "0x2f49b65053b0e9b8cac7914d0ed444ce6ce0396174f68d6b01cbc6e4b7afbf5f",
+			"urls": [
+				"bzzr://87a2c590fb26413600cc76c4fb98136896c382853444071599b2465d4e9535e3"
+			]
+		}
+	},
+	"version": 1
+}

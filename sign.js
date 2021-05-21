@@ -22,7 +22,7 @@ web3.eth.getAccounts().then(function(accounts){
 	//修改数据
 	var email=process.argv[2];
 	var docHash=process.argv[3];
-	certContract.methods.signDoc(email,docHash).send({from:creator, gas:conf.gasLimit}).then(
+	certContract.methods.signDoc(email,docHash).send({from:corp, gas:conf.gasLimit}).then(
 		function(){
 			console.log("New",email,":",docHash);
 			wsProvider.disconnect();

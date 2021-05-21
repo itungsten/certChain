@@ -18,11 +18,9 @@ var web3 = new Web3(wsProvider);
 var certContract = new web3.eth.Contract(conf.ABI,conf.address);
 
 web3.eth.getAccounts().then(function(accounts){
-	//创建一个变量用于指代主账户，方便后续的操作
-	var creator=accounts[conf.creator]
 	//修改数据
 	var addr=process.argv[2];
-	var ans=certContract.methods.getList(addr).call().then(function(stat) {
+	certContract.methods.getList(addr).call().then(function(stat) {
 		console.log("Addr:",addr,"\t Stat:",stat);
 		wsProvider.disconnect();
 	});

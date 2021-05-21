@@ -18,16 +18,15 @@ var web3 = new Web3(wsProvider);
 var certContract = new web3.eth.Contract(conf.ABI,conf.address);
 
 web3.eth.getAccounts().then(function(accounts){
-	//创建一个变量用于指代主账户，方便后续的操作
-	var creator=accounts[conf.creator]
+	//创建一个变量用于指代公司账户，方便后续的操作
+	var corp=accounts[conf.corp]
 	//修改数据
 	var email=process.argv[2];
 	var certStr=process.argv[3];
-	certContract.methods.setCert(email,certStr).send({from:creator, gas:conf.gasLimit}).then(
+	certContract.methods.setCert(email,certStr).send({from:corp, gas:conf.gasLimit}).then(
 		function(){
 			console.log("Set",email,":",certStr);
 			wsProvider.disconnect();
 		}
 	)
-
 })
